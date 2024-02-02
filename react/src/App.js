@@ -1,54 +1,50 @@
-import { Background } from "./Background";
-import { Table } from "./Table";
-import { Modal } from "./Modal";
-import { initJuno } from "@junobuild/core";
-import { Auth } from "./Auth";
-import { useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
+import { initJuno } from '@junobuild/core';
+import { Auth } from './Auth';
+import UserProfile from './components/UserProfile';
+import TokenList from './components/TokenList';
+import PrivateRoute from './PrivateRoute';
+import Homepage from './components/Homepage';
 
 function App() {
-  // TODO: STEP_1_INITIALIZATION
+  const [appState, setAppState] = useState('loading');
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    (async () =>
-      await initJuno({
-        satelliteId: "mgaka-yyaaa-aaaal-adlnq-cai",
-      }))();
+    const initializeJuno = async () => {
+      try {
+        await initJuno({
+          satelliteId: 'mgaka-yyaaa-aaaal-adlnq-cai',
+        });
+        setAppState('initialized');
+      } catch (error) {
+        setError('Errore durante l\'inizializzazione di Juno');
+        setAppState('error');
+      }
+    };
+
+    initializeJuno();
   }, []);
 
   return (
-    <>
-      <div className="isolate bg-white">
-        <main>
-          <div className="relative px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl pt-16">
-              <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Sample Juno App
-                </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
-                  A sample app build with React, Tailwind and{" "}
-                  <a
-                    href="https://juno.build"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="underline"
-                  >
-                    Juno
-                  </a>
-                  .
-                </p>
-
-                <Auth>
-                  <Table />
-
-                  <Modal />
-                </Auth>
-              </div>
-            </div>
-            <Background />
-          </div>
-        </main>
-      </div>
-    </>
+    <BrowserRouter>
+      <Auth>
+        {appState === 'loading' ? (
+          <p className="mt-6 text-lg leading-8 text-gray-600">Inizializzazione...</p>
+          ) : appState === 'initialized' ? (
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/secured" element={<PrivateRoute />}>
+                <Route path="/secured/profilo" element={<UserProfile />} />
+                <Route path="/secured/gallery" element={<TokenList />} />
+              </Route>
+            </Routes>
+        ) : (
+          <p className="mt-6 text-lg leading-8 text-red-600">{error}</p>
+          )}
+      </Auth>
+    </BrowserRouter>
   );
 }
 

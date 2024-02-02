@@ -1,13 +1,21 @@
-import { signOut } from "@junobuild/core";
+import React, { useContext } from "react";
+import { AuthContext } from "./Auth";
 
 export const Logout = () => {
   //TODO: STEP_3_AUTH_SIGN_OUT
   // onClick={signOut}
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    // Chiamare la funzione di logout definita nel contesto AuthContext
+    logout();
+  };
+
 
   return (
     <button
       type="button"
-      onClick={signOut}
+      onClick={handleLogout}
       className="text-sm rounded-md mt-16 px-3.5 py-1.5 text-base font-semibold leading-7 hover:bg-grey-500 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-600"
     >
       <div className="flex items-center justify-center gap-1.5">
