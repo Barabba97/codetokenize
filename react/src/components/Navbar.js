@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../Auth';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Navbar = () => {
   const authenticated = useAuth();
@@ -9,7 +10,7 @@ const Navbar = () => {
     <nav className="bg-[#155263] p-4 text-white">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex center space-x-1">
-          <img height="10px" width="40px" alt="ICPLogo" id="logo" src="/ICP_Logo_2.png"></img>
+          <Logo />
           <Link to="/" className="text-xl font-bold">
             Code Tokenize
           </Link>

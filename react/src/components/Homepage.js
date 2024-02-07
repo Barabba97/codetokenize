@@ -1,13 +1,13 @@
 import React from 'react'
 import TitleAndDescription from './TitleAndDescription'
-import SmartContractForm from './SmartContractForm';
+import SnippetEditorPage from './SnippetEditorPage';
 
 
 const Homepage = () => {
     return (
         <React.Fragment>
             <TitleAndDescription />
-            <SmartContractForm />
+            <SnippetEditorPage />
         </React.Fragment>
     )
 }
