@@ -5,19 +5,24 @@ import { lineNumbers, highlightSpecialChars, drawSelection, dropCursor } from '@
 import { defaultKeymap, indentWithTab, history } from '@codemirror/commands';
 import { oneDark } from '@codemirror/theme-one-dark';
 import { css } from '@codemirror/lang-css';
+import { javascript } from '@codemirror/lang-javascript';
+import { html } from '@codemirror/lang-html';
 import { closeBrackets } from '@codemirror/autocomplete';
 import { indentOnInput } from '@codemirror/language';
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
 import { lintKeymap } from '@codemirror/lint';
 
-const CodeEditor = ({ onChange }) => {
+const CodeEditor = ({ codeType, onChange }) => {
     const editor = useRef();
     const [code, setCode] = useState('');
   
     const onUpdate = EditorView.updateListener.of((v) => {
       setCode(v.state.doc.toString());
     });
-  
+
+    //TODO: Aggiungere altri linguaggi.
+    const codeExtension = codeType === 'css' ? css() : codeType === 'javascript' ? javascript() : html();
+    
     const initialContent = 'Crea uno Snippet CSS'.repeat(1) + '\n'.repeat(9);
     
     useEffect(() => {
@@ -30,7 +35,7 @@ const CodeEditor = ({ onChange }) => {
             drawSelection(),
             dropCursor(),
             oneDark,
-            css(),
+            codeExtension,
             history(),
             closeBrackets(),
             indentOnInput(),
