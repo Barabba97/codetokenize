@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CodeEditor from './CodeEditor';
+import CodeTypeSelector from './CodeTypeSelector';
 
 const SnippetEditorPage = () => {
   const [snippetCode, setSnippetCode] = useState('');
