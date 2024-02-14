@@ -6,6 +6,7 @@ import UserProfile from './components/UserProfile';
 import TokenList from './components/TokenList';
 import PrivateRoute from './PrivateRoute';
 import Homepage from './components/Homepage';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   const [appState, setAppState] = useState('loading');
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/secured/profilo" element={<UserProfile />} />
                 <Route path="/secured/gallery" element={<TokenList />} />
               </Route>
+              {/* <Route path="*" element={<ErrorPage />} /> */}
             </Routes>
         ) : (
           <p className="mt-6 text-lg leading-8 text-red-600">{error}</p>
