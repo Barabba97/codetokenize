@@ -1,28 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getSnippetsFromDB } from '../api/api'; // Funzione per recuperare gli snippet dal database
 
-const TokenList = () => {
-  const [nfts, setNFTs] = useState([]);
+const TokenListPage = ({ onApplySnippet }) => {
+  const [snippets, setSnippets] = useState([]);
 
-  useEffect(() => {
-    // Aggiungi qui la logica per ottenere la lista degli NFT utilizzando Juno
-    const fetchNFTs = async () => {
-      // Esempio: Simuliamo una chiamata a Juno per ottenere gli NFT
-      const response = await fetch('url-api-juno/nfts');
-      const data = await response.json();
-      setNFTs(data);
-    };
+  /* useEffect(() => {
+    // Recupera gli snippet dal database al caricamento della pagina
+    getSnippetsFromDB()
+      .then(snippets => {
+        setSnippets(snippets);
+      })
+      .catch(error => console.error('Errore nel recuperare gli snippet:', error));
+  }, []); */
 
-    fetchNFTs();
-  }, []);
+  const handleApplySnippet = (snippet) => {
+    // Passa lo snippet applicato al componente LandingPage
+    onApplySnippet(snippet);
+  };
 
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-4">Lista NFT</h2>
       <ul>
-        {nfts.map((nft) => (
-          <li key={nft.id} className="mb-2">
-            <span className="font-semibold">ID:</span> {nft.id}, <span className="font-semibold">Nome:</span>{' '}
-            {nft.name}
+        {snippets.map(snippet => (
+          <li key={snippet.id}>
+            <div>{snippet.title}</div>
+            <button onClick={() => handleApplySnippet(snippet.code)}>Applica</button>
           </li>
         ))}
       </ul>
@@ -30,4 +33,4 @@ const TokenList = () => {
   );
 };
 
-export default TokenList;
+export default TokenListPage;

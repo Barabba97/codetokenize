@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { initJuno } from '@junobuild/core';
 import { Auth } from './Auth';
 import UserProfile from './components/UserProfile';
-import TokenList from './components/TokenList';
 import PrivateRoute from './PrivateRoute';
 import Homepage from './components/Homepage';
 import ErrorPage from './components/ErrorPage';
+import TokenListAndIframe from './components/TokenListAndIframe';
 
 function App() {
   const [appState, setAppState] = useState('loading');
@@ -38,7 +38,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/secured" element={<PrivateRoute />}>
                 <Route path="/secured/profilo" element={<UserProfile />} />
-                <Route path="/secured/gallery" element={<TokenList />} />
+                <Route path="/secured/gallery" element={<TokenListAndIframe />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
             </Routes>
