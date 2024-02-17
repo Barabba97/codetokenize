@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { listDocs } from "@junobuild/core";
 import { AuthContext } from "../Auth";
 import nftImage from "../assets/images/coding.png";
@@ -6,14 +6,14 @@ import nftImage from "../assets/images/coding.png";
 const TokenList = () => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
-
+  
   const list = async () => {
     const { items } = await listDocs({
       collection: "notes",
     });
 
     setItems(items);
-    console.log(items);
+    //console.log(items);
   };
 
   useEffect(() => {
@@ -24,6 +24,14 @@ const TokenList = () => {
 
     (async () => await list())();
   }, [user]);
+
+  const handleApplySnippet = (snippet) => {
+    console.log(snippet);
+    // const iframeDocument = iframeRef.current.contentDocument;
+    // const styleElement = iframeDocument.createElement('style');
+    // styleElement.textContent = snippet;
+    // iframeDocument.head.appendChild(styleElement);
+  };
 
   return (
     <div className="mt-8">
@@ -45,6 +53,9 @@ const TokenList = () => {
               <div className="nft-owner">Owned by: {nft.owner}</div>
               <div className="nft-owner">Code: {nft.data.text}</div>
             </div>
+            <button onClick={() => handleApplySnippet(nft.data.text)} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+              Applica Snippet
+            </button>
           </div>
         ))}
       </div>
