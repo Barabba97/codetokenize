@@ -45,7 +45,7 @@ export const Auth = ({ children }) => {
     <AuthContext.Provider value={{ user, logout, login, authenticated }}>
       <Navbar />
       {authenticated ? (
-          <div className="isolate bg-[#f9c74f]">
+          <div className="isolate bg-white">
               <main>
                 <div className="relative px-6 lg:px-8">
                   <div className="mx-auto max-w-8xl pt-16">
@@ -58,7 +58,7 @@ export const Auth = ({ children }) => {
               </main>
           </div>
       ) : (
-        <div className="isolate bg-[#f9c74f]">
+        <div className="isolate bg-white">
               <main>
                 <div className="relative px-6 lg:px-8">
                   <div className="mx-auto max-w-98vw pt-16">
