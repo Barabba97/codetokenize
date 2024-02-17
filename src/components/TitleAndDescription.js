@@ -4,7 +4,7 @@ import Description from './Description';
 
 const TitleAndDescription = () => {
   return (
-    <div className="py-20">
+    <div>
       <Title />
       <Description />
     </div>

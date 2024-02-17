@@ -58,15 +58,10 @@ export const Auth = ({ children }) => {
               </main>
           </div>
       ) : (
-        <div className="isolate bg-white">
-              <main>
-                <div className="relative px-6 lg:px-8">
-                  <div className="mx-auto max-w-98vw pt-16">
-                    <Hero />
-                  </div>
-                </div>
-              </main>
-              <Login />
+        <div>
+          <main>
+            <Hero />
+          </main>
         </div>
       )}
       <Footer />

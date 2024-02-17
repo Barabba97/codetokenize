@@ -16,7 +16,7 @@ export const Login = () => {
       <button
         type="button"
         onClick={handleLogin}
-        className="rounded-md bg-[#ff6f3c] px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-[#ff9a3c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="bg-white text-gray-800 font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out"
       >
         <div className="flex items-center justify-center gap-1.5">
           <svg
