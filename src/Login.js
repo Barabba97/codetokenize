@@ -12,7 +12,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="mt-10 flex items-center justify-center gap-x-6">
+    <div className="pb-10 mt-10 flex items-center justify-center gap-x-6">
       <button
         type="button"
         onClick={handleLogin}

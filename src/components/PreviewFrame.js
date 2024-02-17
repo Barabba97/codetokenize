@@ -50,7 +50,7 @@ const PreviewFrame = ({ appliedSnippet }) => {
       </head>
       <body>
         <div className="container">
-          <img src="https://image-link-di-prova/image.png" alt="Avatar" className="avatar" />
+          <img src="/ICP_Logo.png" alt="Avatar" className="avatar" />
           <div className="button-list">
             <button className="button">Button 1</button>
             <button className="button">Button 2</button>

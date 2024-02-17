@@ -18,15 +18,16 @@ const LandingPage = ({ appliedSnippet }) => {
   return (
     <div className="container mx-auto">
       <div className="flex justify-between mt-4">
-        <button onClick={handleApplySnippet} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        {/* <button onClick={handleApplySnippet} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
           Applica Snippet
-        </button>
+        </button> */}
       </div>
       <div className="mt-8">
         <iframe
           title="Anteprima Pagina Web"
           ref={iframeRef}
-          className="w-full h-64 border rounded"
+          className="w-full border rounded" // Rimuovi la classe h-64 per consentire all'iframe di adattarsi dinamicamente all'altezza del contenuto
+          style={{ height: '300px' }} // Aggiungi uno stile inline per definire l'altezza dell'iframe
           srcDoc={`<!DOCTYPE html>${previewHtml}`}
         />
       </div>
