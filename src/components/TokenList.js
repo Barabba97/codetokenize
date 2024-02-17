@@ -32,11 +32,11 @@ const TokenList = ({ onApplySnippet }) => {
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-4">Lista NFT</h2>
-      <div className='container-nft'>
-        {items.map((nft) => (
-          <div className="nft-card">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        {items.map((nft, index) => (
+          <div key={index} className="nft-card">
             {/* Immagine dell'NFT */}
-            <div className='container-img'>
+            <div className="container-img">
               <img src={nftImage} alt="NFT Image" className="nft-image" />
             </div>
             {/* Contenuto della NFT Card */}
@@ -47,11 +47,15 @@ const TokenList = ({ onApplySnippet }) => {
               <div className="nft-description">test</div>
               {/* Proprietario dell'NFT */}
               <div className="nft-owner">Owned by: {nft.owner}</div>
-              <div className="nft-owner">Code: {nft.data.text}</div>
+              <div className="nft-owner">
+              Code: {nft.data.text.split(' ').length > 15 ? `${nft.data.text.split(' ').slice(0, 15).join(' ')}...` : nft.data.text}
+              </div>
             </div>
-            <button onClick={() => handleApplySnippet(nft.data.text)} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-              Applica Snippet
-            </button>
+            <div className='container-botton-nft'>
+              <button onClick={() => handleApplySnippet(nft.data.text)} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                Applica NFT
+              </button>
+            </div>
           </div>
         ))}
       </div>

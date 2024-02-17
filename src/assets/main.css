@@ -11,17 +11,20 @@
     display: flex;
 }
 
-.container-img {
+.container-img, .icon-image, .block-home {
     display: flex;
-  justify-content: center; /* Allinea orizzontalmente al centro */
+  justify-content: center;
   align-items: center;
+}
+.container-img-block-home {
+    max-width: 35%;
 }
 
 /* Stili CSS per la NFT Card */
 .nft-card {
-width: 300px;
+width: 250px;
 margin-right: 10px;
-height: 400px;
+height: 350px;
 background-color: #f0f0f0;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,13 +32,13 @@ overflow: hidden;
 position: relative;
 }
 .nft-card img {
-padding: 20px;
+padding: 10px;
 width: 50%;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 }
 .nft-card-content {
-padding: 20px;
+padding: 10px;
 }
 .nft-title {
 font-size: 18px;
@@ -49,5 +52,15 @@ line-height: 1.5;
 .nft-owner {
 margin-top: auto;
 font-size: 12px;
+}
+.container-botton-nft {
+    text-align: center;
+}
+.text-homepage-blocks {
+    text-align: center;
+    font-weight: bold;
+    color: darkslategray;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
   

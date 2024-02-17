@@ -20,7 +20,7 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link to="secured/gallery" className="hover:text-gray-300">
-                  Galleria NFT Generati
+                  NFT Generati
                 </Link>
                 <Link to="secured/profilo" className="hover:text-gray-300">
                   Profilo Utente
