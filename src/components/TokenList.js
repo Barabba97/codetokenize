@@ -1,36 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { getSnippetsFromDB } from '../api/api'; // Funzione per recuperare gli snippet dal database
+import React, { useState, useEffect, useContext } from 'react';
+import { listDocs } from "@junobuild/core";
+import { AuthContext } from "../Auth";
+import nftImage from "../assets/images/coding.png";
 
-const TokenListPage = ({ onApplySnippet }) => {
-  const [snippets, setSnippets] = useState([]);
+const TokenList = () => {
+  const { user } = useContext(AuthContext);
+  const [items, setItems] = useState([]);
 
-  /* useEffect(() => {
-    // Recupera gli snippet dal database al caricamento della pagina
-    getSnippetsFromDB()
-      .then(snippets => {
-        setSnippets(snippets);
-      })
-      .catch(error => console.error('Errore nel recuperare gli snippet:', error));
-  }, []); */
+  const list = async () => {
+    const { items } = await listDocs({
+      collection: "notes",
+    });
 
-  const handleApplySnippet = (snippet) => {
-    // Passa lo snippet applicato al componente LandingPage
-    onApplySnippet(snippet);
+    setItems(items);
+    console.log(items);
   };
+
+  useEffect(() => {
+    if ([undefined, null].includes(user)) {
+      setItems([]);
+      return;
+    }
+
+    (async () => await list())();
+  }, [user]);
 
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold mb-4">Lista NFT</h2>
-      <ul>
-        {snippets.map(snippet => (
-          <li key={snippet.id}>
-            <div>{snippet.title}</div>
-            <button onClick={() => handleApplySnippet(snippet.code)}>Applica</button>
-          </li>
+      <div className='container-nft'>
+        {items.map((nft) => (
+          <div className="nft-card">
+            {/* Immagine dell'NFT */}
+            <div className='container-img'>
+              <img src={nftImage} alt="NFT Image" className="nft-image" />
+            </div>
+            {/* Contenuto della NFT Card */}
+            <div className="nft-card-content">
+              {/* Titolo dell'NFT */}
+              <div className="nft-title">test</div>
+              {/* Descrizione dell'NFT */}
+              <div className="nft-description">test</div>
+              {/* Proprietario dell'NFT */}
+              <div className="nft-owner">Owned by: {nft.owner}</div>
+              <div className="nft-owner">Code: {nft.data.text}</div>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
-};
+}  
 
-export default TokenListPage;
+export default TokenList;
