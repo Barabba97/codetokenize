@@ -1,14 +1,14 @@
 import React from 'react'
 import SnippetEditorPage from './SnippetEditorPage';
-import Hero from './Hero';
+import Title from './Title';
 
 
 const Homepage = () => {
     return (
-        <React.Fragment>
-            <Hero />
+        <div className="py-10">
+            <Title />
             <SnippetEditorPage />
-        </React.Fragment>
+        </div>
     )
 }
 

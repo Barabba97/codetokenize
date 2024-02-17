@@ -23,12 +23,6 @@ const SnippetEditorPage = () => {
     setSelectedCodeType(codeType);
   };
 
-  // const handleSaveSnippet = () => {
-  //   const formattedCode = snippetCode.text.filter(line => line.trim() !== "").join("\n");
-  //   console.log('Codice salvato:', formattedCode);
-  //   // Aggiungi qui la logica per inviare il codice al backend
-  // };
-
   const reload = () => {
     let event = new Event("reload");
     window.dispatchEvent(event);
@@ -74,7 +68,6 @@ const SnippetEditorPage = () => {
 
   return (
     <div>
-      <br />
       <br />
       <CodeTypeSelector selectedCodeType={selectedCodeType} onChange={handleCodeTypeChange} />
       <CodeEditor codeType={selectedCodeType} onChange={handleCodeChange} />
