@@ -3,7 +3,6 @@ import { authSubscribe, signIn, signOut } from "@junobuild/core";
 import { Login } from "./Login";
 import { Logout } from "./Logout";
 import Navbar from "./components/Navbar";
-import TitleAndDescription from "./components/TitleAndDescription";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 

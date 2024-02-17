@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex center space-x-1">
           <Logo />
-          <Link to="/" className="text-xl font-bold">
+          <Link to="/" className="text-xl font-bold px-2">
             Code Tokenize
           </Link>
         </div>
