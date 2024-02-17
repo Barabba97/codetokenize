@@ -3,7 +3,7 @@ import { listDocs } from "@junobuild/core";
 import { AuthContext } from "../Auth";
 import nftImage from "../assets/images/coding.png";
 
-const TokenList = () => {
+const TokenList = ({ onApplySnippet }) => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   
@@ -26,11 +26,7 @@ const TokenList = () => {
   }, [user]);
 
   const handleApplySnippet = (snippet) => {
-    console.log(snippet);
-    // const iframeDocument = iframeRef.current.contentDocument;
-    // const styleElement = iframeDocument.createElement('style');
-    // styleElement.textContent = snippet;
-    // iframeDocument.head.appendChild(styleElement);
+    onApplySnippet(snippet); // Passa lo snippet al componente genitore
   };
 
   return (
