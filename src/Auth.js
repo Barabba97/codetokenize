@@ -48,7 +48,7 @@ export const Auth = ({ children }) => {
           <div className="isolate bg-[#f9c74f]">
               <main>
                 <div className="relative px-6 lg:px-8">
-                  <div className="mx-auto max-w-6xl pt-16">
+                  <div className="mx-auto max-w-8xl pt-16">
                     {children}
                     <div className="pb-10 text-center">
                       <Logout />

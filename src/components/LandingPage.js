@@ -23,7 +23,7 @@ const LandingPage = ({ appliedSnippet }) => {
       const styleElement = iframeDocument.createElement('style');
       styleElement.textContent = appliedSnippet;
       // Rimuovi eventuali stili precedenti
-      iframeDocument.head.innerHTML = '';
+      //iframeDocument.head.innerHTML = '';
       // Applica lo snippet all'iframe
       iframeDocument.head.appendChild(styleElement);
     }
