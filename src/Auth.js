@@ -4,6 +4,8 @@ import { Login } from "./Login";
 import { Logout } from "./Logout";
 import Navbar from "./components/Navbar";
 import TitleAndDescription from "./components/TitleAndDescription";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 
 export const AuthContext = createContext();
 
@@ -60,14 +62,15 @@ export const Auth = ({ children }) => {
         <div className="isolate bg-white">
               <main>
                 <div className="relative px-6 lg:px-8">
-                  <div className="mx-auto max-w-2xl pt-16">
-                    <TitleAndDescription />
+                  <div className="mx-auto max-w-98vw pt-16">
+                    <Hero />
                   </div>
                 </div>
               </main>
               <Login />
         </div>
       )}
+      <Footer />
     </AuthContext.Provider>
   );
 };

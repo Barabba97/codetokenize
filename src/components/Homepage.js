@@ -1,12 +1,12 @@
 import React from 'react'
-import TitleAndDescription from './TitleAndDescription'
 import SnippetEditorPage from './SnippetEditorPage';
+import Hero from './Hero';
 
 
 const Homepage = () => {
     return (
         <React.Fragment>
-            <TitleAndDescription />
+            <Hero />
             <SnippetEditorPage />
         </React.Fragment>
     )
