@@ -4,58 +4,70 @@ import balancePic from '../old/icp.png'
 
 const UserProfile = () => {
   return (
-    <div className="mt-8 flex items-start">
-    {/* Contenitore dell'immagine del profilo e delle sezioni */}
-    <div className="flex flex-col">
-      {/* Immagine del profilo */}
-      <div className="mr-4">
-        <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg">
-          <img className="w-full h-full object-cover" src={profilePic} alt="Profile" />
+    <div className="w-full px-6 mx-auto mt-12">
+      <div className="w-full  px-6 mt-6 -mt-16 overflow-hidden break-words border-0 shadow-blur bg-gradient-to-br from-blue-700 to-bg-white rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-100">
+        <div className="flex flex-wrap -mx-3">
+          <div className="flex-none w-auto max-w-full px-3">
+            <div className="text-base ease-soft-in-out h-28 w-28 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
+              <img src={profilePic} alt="Profile" className="w-13  shadow-soft-sm rounded-xl" />
+            </div>
+          </div>
+          <div className="flex-none w-auto max-w-full px-3 my-auto">
+            <div className="h-full">
+              <h5 className="mb-1 dark:text-white"> Captain Code </h5>
+              <p className="mb-0 font-semibold leading-normal text-sm dark:text-white dark:opacity-60">CEO / Co-Founder</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-8">
-      <h2 className="text-2xl font-bold mb-0 text-gray-800">
-        PandaMonster
-      </h2>
-      <div className="flex-1 " >
-      <h2 className="text-gray-800  mb-2">  
-        <p className='text-gray-600 mb-4'>Joined on February 2024</p>
-        </h2>
-      
-      </div>
-    </div>
-   
-      
-      {/* Contenitore delle sezioni saldo e transazioni */}
-      <div className="flex flex-col">
-        {/* Sezione saldo */}
-        <div className="flex flex-col mb-4">
-          <h2 className="text-xl font-semibold mb-2">Balance</h2>
-          <div className="flex items-center justify-between">
-              <img className="w-10 h-10 rounded-full overflow-hidden shadow-lg" src={balancePic} alt="Placeholder Image" />
-            <div className="flex-1">
-            
-          <p className="text-gray-600"> 0.0000 ICP</p>
-      </div>
-    
-      </div>
-        </div>
 
-        {/* Sezione transazioni */}
-        <div className="flex flex-col">
-          <h2 className="text-xl font-semibold mb-1">Transactions</h2>
-          {/* Aggiungi qui il codice per visualizzare le transazioni */}
-          <ul>
-            <li>Transaction n.1</li>
-            <li>Transaction n.2</li>
-          
-          </ul>
+
+
+
+      <div className="grid grid-cols-2 gap-4 mt-1">
+      <div className="relative flex flex-col flex-auto min-w-0 p-10 mx-6 mt-6 overflow-hidden break-words border-0 shadow-blur bg-gradient-to-br from-blue-700 to-bg-white rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-100">
+     <div className="flex flex-wrap -mx-3">
+      <div className="flex-none w-auto max-w-full px-3 my-auto">
+        <div className="h-full">
+          <h5 className="mb-1 dark:text-white"> BALANCE </h5>
+          <div className="h-full flex items-center">
+          <img className="w-10 h-10 rounded-full overflow-hidden shadow-lg" src={balancePic} alt="Placeholder Image" />
+          <p className="text-gray-600 ml-2">0.0000 ICP</p>
         </div>
+           </div>
       </div>
     </div>
   </div>
+
+
+  <div className="relative flex flex-col flex-auto min-w-0 p-10 mx-6 mt-6 overflow-hidden break-words border-0 shadow-blur bg-gradient-to-br from-blue-700 to-bg-white rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-100">
+     <div className="flex flex-wrap -mx-3">
+      <div className="flex-none w-auto max-w-full px-3 my-auto">
+        <div className="h-full">
+          <h5 className="mb-1 dark:text-white"> TRANSACTIONS </h5>
+          <p className="mb-0 font-semibold leading-normal text-sm dark:text-white dark:opacity-60">Transaction n.1</p>
+        </div>
+      </div>
+      <div className="flex-none w-auto max-w-full px-3">
+        <div className="text-base ease-soft-in-out h-28 w-28 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
+          {/* Aggiungi un'altra immagine qui */}
+        </div>
+      </div>
+    
+    </div>
+  </div>
+      </div>
+
+    
+    </div>
+
+    
+
+
   
   )
 }
+
+
 
 export default UserProfile
